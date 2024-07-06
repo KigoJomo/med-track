@@ -18,3 +18,25 @@ html {
   overflow-x: hidden;
   transition: all 0.3s ease;
 }
+
+.truncate-three {
+  display: inline-block;
+  width: 7ch; /* 7 characters wide */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+tbody::-webkit-scrollbar{
+  display: none;
+}
+tbody::after{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(0deg, rgba(255,255,255,1) 10%, rgba(255,255,255,0) 100%);
+  pointer-events: none;
+}

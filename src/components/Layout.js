@@ -1,6 +1,6 @@
 // src/components/Layout.js
 import { Outlet, Link, NavLink } from "react-router-dom";
-import { FieldWrapper } from "./Elements";
+import { FieldWrapper } from "./Components";
 
 import logo from "../assets/images/medtrack-logo.png";
 import profile_pic from "../assets/images/user.jpeg";
@@ -50,7 +50,7 @@ const Layout = () => {
 
         <div className="line w-full h-0  border border-slate-300"></div>
 
-        <div class="navigation flex flex-col w-full h-fit gap-4">
+        <div className="navigation flex flex-col w-full h-fit gap-4">
           <NavigationLink to="/" icon="home" label="dashboard" />
           <NavigationLink to="/batch-info" icon="info" label="batch info" />
           <NavigationLink
@@ -73,17 +73,24 @@ const Layout = () => {
         <div className="line w-full h-0  border border-slate-300"></div>
 
         <div className="w-full h-full flex flex-col items-center justify-end gap-1">
-          <img src={profile_pic} alt="user profile" className="h-14 aspect-1 rounded-full border-2 border-indigo-600" />
+          <img
+            src={profile_pic}
+            alt="user profile"
+            className="h-14 aspect-1 rounded-full border-2 border-indigo-600"
+          />
 
-          <h3 className="name text-gray-800 capitalize text-base font-bold">john doe</h3>
+          <h3 className="name text-gray-800 capitalize text-base font-bold">
+            john doe
+          </h3>
           <p className="email text-gray-600 text-sm">johndoe@gmail.com</p>
-
         </div>
-
       </nav>
 
-      <main class="w-3/4 min-h-full rounded-xl flex flex-col gap-6">
-        <header className="w-full h-20 bg-white rounded-xl shadow-xl flex items-center justify-between px-8">
+      <main className="w-3/4 min-h-full rounded-xl flex flex-col gap-6">
+        <header
+          className="w-full bg-white rounded-xl shadow-xl flex items-center justify-between px-8"
+          style={{ height: "15%" }}
+        >
           <FieldWrapper
             id="search"
             type="text"
@@ -92,11 +99,13 @@ const Layout = () => {
             iconPosition="right"
           />
 
-          <p className="text-sm text-gray-600">{ currentDate }</p>
-
+          <p className="text-sm text-gray-600">{currentDate}</p>
         </header>
 
-        <div class="container w-full h-full rounded-xl flex flex-col gap-6">
+        <div
+          className="container w-full rounded-xl flex flex-col gap-6 flex-shrink-0"
+          style={{ height: "85%" }}
+        >
           <Outlet />
         </div>
       </main>
