@@ -15,7 +15,7 @@ const NavigationLink = ({ to, label, icon }) => {
           : "flex items-center gap-2 px-4 py-2 border border-transparent rounded-full text-slate-900 hover:border hover:border-slate-900 w-fit lg:w-full"
       }
     >
-      <span className="material-symbols-outlined max-w-8 text-lg">{icon}</span>
+      <span className="material-symbols-outlined max-w-8 text-lg overflow-hidden flex-grow-0 flex-shrink-0">{icon}</span>
       <p className="capitalize hidden lg:block text-sm">{label}</p>
     </NavLink>
   );
