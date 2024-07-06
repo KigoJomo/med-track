@@ -4,7 +4,7 @@ import ReactModal from "react-modal";
 
 const TableHeaderCol = ({ text }) => {
   return (
-    <th className="w-1/6 text-left text-xs text-gray-400 font-semibold py-3">
+    <th className="w-1/6 text-left text-xs text-gray-400 font-semibold py-3 select-none">
       {text}
     </th>
   );
@@ -103,10 +103,14 @@ const RecentShipments = ({ shipments, onShipmentClick }) => {
 
 const ShipmentDetails = ({ isOpen, onClose, shipment }) => {
   return (
-    <ReactModal isOpen={isOpen} onRequestClose={onClose}>
-      <div className="p-4">
-        <h2 className="text-2xl font-bold">Shipment Details</h2>
-        <div className="mt-4 bg-white rounded shadow p-4">
+    <ReactModal
+      isOpen={isOpen}
+      onRequestClose={onClose}
+      className="h-full bg-gray-900 bg-opacity-50 flex items-center justify-center pointer-events-none"
+    >
+      <div className="p-8 pointer-events-auto w-1/2 h-2/3 bg-slate-100 box-border overflow-hidden rounded-3xl flex flex-col gap-4">
+        <h2 className="text-2xl font-bold text-gray-900">Shipment Details</h2>
+        <div className="p-4 h-4/5 overflow-item">
           <p>
             <strong>Shipment ID:</strong> {shipment.id}
           </p>
