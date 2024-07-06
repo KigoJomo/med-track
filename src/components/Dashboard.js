@@ -19,7 +19,7 @@ function Dashboard() {
             <h2 class="capitalize text-2xl font-bold text-gray-800">
               recent shipments
             </h2>
-            <p class="text-gray-600 text-sm">117 total</p>
+            <p class="text-gray-600 text-sm">43 total</p>
           </div>
           <div class="right flex gap-6">
             <StatCard number="43" category="received" />
