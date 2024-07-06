@@ -31,21 +31,7 @@ src/
 |   |-- TrackShipment.js
 |   |-- VerifyMedication.js
 |
-|-- context/
-|   |-- UserContext.js
-|   |-- BatchContext.js
-|
-|-- services/
-|   |-- AuthService.js
-|   |-- BlockchainService.js
-|
-|-- utils/
-|   |-- RoleBasedAccess.js
-|   |-- Validation.js
-|
-|-- App.js
 |-- index.js
-|-- routes.js
 |-- index.css
 ```
 
