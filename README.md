@@ -37,12 +37,11 @@ src/
 
 ## Features
 
-- **Role-Based Access Control:** Different users such as manufacturers, quality assurance officers, distributors, warehouse managers, transporters, hospital managers, and pharmacists/doctors have specific roles and access to different functionalities.
+- **Dashboard:** Details of recent shipments and their status.
 - **Batch Information:** Display detailed information about medication batches.
 - **Create Shipment:** Interface for creating new shipments.
 - **Track Shipment:** Real-time tracking of medication shipments.
 - **Verify Medication:** Verify the authenticity of medications using blockchain.
-- **Dashboard:** Overview of recent shipments and their status.
 
 ## Getting Started
 

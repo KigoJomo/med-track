@@ -54,7 +54,7 @@ function Dashboard() {
 
   return (
     <>
-      <section className="shadow-xl w-full h-3/5 flex flex-col items-center justify-start gap-8 px-8 pt-6 bg-white rounded-xl">
+      <section className="shadow-xl w-full h-full flex flex-col items-center justify-start gap-8 px-8 py-6 bg-white rounded-xl">
 
         <div className="top w-full flex justify-between">
 
@@ -79,7 +79,7 @@ function Dashboard() {
 
       </section>
 
-      <section className="w-full h-2/5 flex justify-center gap-6">
+      <section className="w-full h-2/5 hidden justify-center gap-6">
         <div className="left w-1/2 h-full bg-white rounded-xl shadow-xl"></div>
         <div className="right w-1/2 h-full bg-slate-900 rounded-xl shadow-xl"></div>
       </section>
