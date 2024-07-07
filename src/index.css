@@ -19,6 +19,12 @@ html {
   transition: all 0.3s ease;
 }
 
+.material-symbols-outlined{
+  max-width: 24px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
 .truncate-three {
   display: inline-block;
   width: 7ch; /* 7 characters wide */
