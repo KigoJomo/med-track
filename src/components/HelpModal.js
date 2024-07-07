@@ -28,7 +28,7 @@ const HelpModal = ({ isOpen, onClose }) => {
     >
       {isSubmitted ? (
         <div className="flex flex-col items-center gap-8">
-          <span className="material-symbols-outlined text-9xl text-green-600">
+          <span className="material-symbols-outlined text-9xl text-green-600" style={{maxWidth: '300px'}}>
             task_alt
           </span>
           <p className="text-green-600">Message sent successfully!</p>

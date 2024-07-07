@@ -1,4 +1,4 @@
-// src/components/Card.js
+// src/components/Components.js
 import React, {useState} from "react";
 import ReactModal from "react-modal";
 
@@ -58,6 +58,7 @@ const FieldWrapper = ({
         )}
         <input
           type={type}
+          required
           name={id}
           id={id}
           placeholder={placeholder}
