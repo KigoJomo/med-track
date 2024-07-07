@@ -1,5 +1,4 @@
 // src/CreateShipment.js
-
 import React, { useState } from "react";
 import { FieldWrapper } from "./Components";
 import ConfirmationModal from "./ConfirmationModal";
@@ -55,7 +54,7 @@ function CreateShipment() {
       </h2>
       <form
         onSubmit={handleSubmit}
-        className="w-full h-4/5 overflow-item flex flex-col gap-8 pl-6 pr-28"
+        className="w-full h-4/5 overflow-item flex flex-col gap-8 pl-6 pr-32"
       >
         <FieldWrapper
           label="Batch Number"
@@ -127,7 +126,7 @@ function CreateShipment() {
           value={formData.estimatedDelivery}
           onChange={handleChange}
         />
-        <div className="line w-full h-0  border border-slate-300"></div>
+        <div className="line w-full h-0 border border-slate-300"></div>
         <button
           type="submit"
           className="w-full py-2 font-medium text-white bg-indigo-600 rounded-full hover:bg-indigo-500"

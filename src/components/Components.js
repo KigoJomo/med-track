@@ -37,6 +37,8 @@ const FieldWrapper = ({
   label,
   id,
   type,
+  value,
+  onChange,
   placeholder,
   icon,
   iconPosition = "left",
@@ -52,7 +54,7 @@ const FieldWrapper = ({
       )}
       <div className="input relative flex items-center w-full">
         {isIconLeft && (
-          <span className="material-symbols-outlined absolute left-4 text-xl text-gray-600">
+          <span className="material-symbols-outlined absolute left-4 text-xl text-gray-600 select-none">
             {icon}
           </span>
         )}
@@ -61,6 +63,8 @@ const FieldWrapper = ({
           required
           name={id}
           id={id}
+          value={value}
+          onChange={onChange}
           placeholder={placeholder}
           className={`text-gray-800 text-sm rounded-full px-12 py-2 flex items-center bg-slate-200 w-full outline-none border-2 border-transparent focus:bg-white focus:outline-none focus:border-indigo-600 transition-all ${
             isIconLeft ? "pl-12" : "pr-12"
@@ -123,7 +127,7 @@ const ModalSection = ({ heading, children }) => {
   );
 };
 
-const ModalRecord = ({ icon, title, value }) => {
+const ModalRecord = ({ icon, title, value, noCopy }) => {
   const [isCopied, setIsCopied] = useState(false);
 
   const handleCopy = () => {
@@ -131,7 +135,7 @@ const ModalRecord = ({ icon, title, value }) => {
       setIsCopied(true);
       setTimeout(() => {
         setIsCopied(false);
-      }, 2000);
+      }, 3000);
     });
   };
 
@@ -144,13 +148,14 @@ const ModalRecord = ({ icon, title, value }) => {
         {title}
       </p>
       <p className="pl-2 text-sm text-gray-900 font-semibold">{value}</p>
-      <span
+      {noCopy? "" : <span
         className="material-symbols-outlined absolute right-4 text-xl text-indigo-600 cursor-pointer hover:text-lg transition-all"
         title={`Copy ${title}`}
         onClick={handleCopy}
       >
         {isCopied ? "check_circle" : "content_copy"}
-      </span>
+      </span>}
+
     </div>
   );
 };
@@ -230,4 +235,4 @@ const ShipmentDetails = ({ isOpen, onClose, shipment }) => {
   );
 };
 
-export { FieldWrapper, RecentShipments, ShipmentDetails,ModalSection };
+export { FieldWrapper, RecentShipments, ShipmentDetails,ModalSection, ModalRecord };

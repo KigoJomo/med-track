@@ -2,6 +2,7 @@
 
 import React from "react";
 import Modal from "react-modal";
+import { ModalRecord } from "./Components";
 
 Modal.setAppElement("#root"); // Assuming your root element has an id of 'root'
 
@@ -17,11 +18,11 @@ function ConfirmationModal({
       isOpen={isOpen}
       onRequestClose={onClose}
       contentLabel="Confirm Shipment Details"
-      overlayClassName="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center z-50"
-      className="bg-white p-6 rounded-lg shadow-lg relative"
+      overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+      className="bg-slate-100 rounded-3xl p-8 w-3/5 h-2/3 shadow-xl relative flex flex-col items-center justify-start gap-6"
     >
       {isSubmitted ? (
-        <div className="flex flex-col items-center gap-8">
+        <div className="h-full flex flex-col items-center justify-center gap-8">
           <span
             className="material-symbols-outlined text-9xl text-green-600"
             style={{ maxWidth: "300px" }}
@@ -32,26 +33,32 @@ function ConfirmationModal({
         </div>
       ) : (
         <>
-          <h2 className="text-2xl font-bold mb-4">Confirm Shipment Details</h2>
-          <ul className="mb-4">
+          <h3 className="text-lg font-medium text-gray-900 w-full text-center select-none capitalize">
+            Confirm Shipment Details
+          </h3>
+
+          <div className="w-full h-0 border border-gray-300"></div>
+
+          <div className="w-full h-4/5 overflow-item flex flex-col gap-4 pl-4 pr-8">
             {Object.keys(formData).map((key) => (
-              <li key={key} className="flex justify-between mb-2">
-                <span className="font-semibold">
-                  {key.replace(/([A-Z])/g, " $1")}
-                </span>
-                <span>{formData[key]}</span>
-              </li>
+              <ModalRecord
+                key={key}
+                title={key.replace(/([A-Z])/g, " $1")}
+                value={formData[key]}
+                noCopy
+              />
             ))}
-          </ul>
-          <div className="flex justify-end gap-4">
+            </div>
+
+          <div className="w-full flex justify-end gap-4">
             <button
-              className="px-4 py-2 bg-gray-300 rounded-full hover:bg-gray-200"
+              className="w-32 px-4 py-2 bg-gray-300 rounded-full hover:bg-gray-200"
               onClick={onClose}
             >
               Edit
             </button>
             <button
-              className="px-4 py-2 bg-indigo-600 text-white rounded-full hover:bg-indigo-500"
+              className="w-32 px-4 py-2 bg-indigo-600 text-white rounded-full hover:bg-indigo-500"
               onClick={onConfirm}
             >
               Confirm

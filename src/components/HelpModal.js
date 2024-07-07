@@ -63,7 +63,7 @@ const HelpModal = ({ isOpen, onClose }) => {
             />
             <button
               type="submit"
-              className="mt-4 w-full bg-indigo-600 hover:bg-indigo-900 transition-all text-white py-2 rounded-full"
+              className="mt-4 w-full bg-indigo-600 hover:bg-indigo-500 transition-all text-white py-2 rounded-full"
             >
               Send
             </button>

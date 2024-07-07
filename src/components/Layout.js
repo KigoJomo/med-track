@@ -100,7 +100,7 @@ const Layout = () => {
 
           <div className="flex items-center gap-4">
             <span
-              className="material-symbols-outlined text-gray-600 cursor-pointer select-none"
+              className="material-symbols-outlined text-gray-600 cursor-pointer select-none hover:rotate-12 transition-all"
               title="No notifications at the moment"
             >
               notifications
