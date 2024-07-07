@@ -2,10 +2,11 @@
 import React, {useState} from "react";
 import ReactModal from "react-modal";
 
-const TableHeaderCol = ({ text, width }) => {
+const TableHeaderCol = ({ icon, text, width }) => {
   return (
-    <th className="w-1/6 text-left text-xs text-gray-400 font-semibold py-3 select-none capitalize" style={{ width: width }}>
-      {text}
+    <th className="w-1/6 text-left text-xs text-gray-400 font-semibold py-3 select-none capitalize flex items-center gap-1" style={{ width: width }}>
+      <span className="material-symbols-outlined text-base text-indigo-600">{icon}</span>
+      <p className="">{text}</p>
     </th>
   );
 };
@@ -21,6 +22,7 @@ const TableDataCol = ({ text, id, shipDate, width, wrap }) => {
           : ""
       }`}
       style={{ zIndex: 0, width: width }}
+      title="Click for more details"
     >
       {shipDate ? (
         <p className="text-xs truncate-three">{text}</p>
@@ -59,7 +61,7 @@ const FieldWrapper = ({
           name={id}
           id={id}
           placeholder={placeholder}
-          className={`text-gray-800 text-sm rounded-full px-12 py-2 flex items-center bg-slate-200 w-full outline-none border-4 border-transparent focus:outline-none focus:border-slate-400 transition-all ${
+          className={`text-gray-800 text-sm rounded-full px-12 py-2 flex items-center bg-slate-200 w-full outline-none border-2 border-transparent focus:bg-white focus:outline-none focus:border-indigo-600 transition-all ${
             isIconLeft ? "pl-12" : "pr-12"
           }`}
         />
@@ -78,13 +80,13 @@ const RecentShipments = ({ shipments, onShipmentClick }) => {
     <table className="w-full max-w-full h-full overflow-hidden flex flex-col gap-2">
 
       <thead className="w-full max-w-full border border-gray-300 border-r-0 border-l-0">
-        <tr className="w-full max-w-full flex px-1">
-          <TableHeaderCol text="Shipment ID" />
-          <TableHeaderCol text="Batch Number" />
-          <TableHeaderCol text="Date Shipped" />
-          <TableHeaderCol text="Status" />
-          <TableHeaderCol text="Estimated Delivery" />
-          <TableHeaderCol text="Current Location" />
+        <tr className="w-full max-w-full flex">
+          <TableHeaderCol text="Shipment ID" icon="tag" />
+          <TableHeaderCol text="Batch No." icon="receipt" />
+          <TableHeaderCol text="Date Shipped" icon="event"/>
+          <TableHeaderCol text="Status" icon="hourglass_top" />
+          <TableHeaderCol text="Est. Delivery" icon="schedule" />
+          <TableHeaderCol text="Current Location" icon="location_on" />
         </tr>
       </thead>
 
@@ -120,7 +122,7 @@ const ModalSection = ({ heading, children }) => {
   );
 };
 
-const ModalRecord = ({ title, value }) => {
+const ModalRecord = ({ icon, title, value }) => {
   const [isCopied, setIsCopied] = useState(false);
 
   const handleCopy = () => {
@@ -133,19 +135,21 @@ const ModalRecord = ({ title, value }) => {
   };
 
   return (
-    <div className="w-full px-4 py-4 border border-r-0 border-l-0 flex items-center gap-8 relative">
+    <div className="w-full px-4 py-4 border border-r-0 border-l-0 flex items-center gap-2 relative">
+      <span className="material-symbols-outlined text-lg text-indigo-600">
+        {icon}
+      </span>
       <p className="text-sm text-gray-500 w-1/3 capitalize font-medium">
         {title}
       </p>
-      <p className="text-sm text-gray-900 font-semibold">{value}</p>
-      <span className="material-symbols-outlined absolute right-4 text-xl text-indigo-600 cursor-pointer hover:text-lg transition-all" title={`Copy ${title}`} onClick={handleCopy}>
-        {isCopied? 'check_circle':'content_copy'}
+      <p className="pl-2 text-sm text-gray-900 font-semibold">{value}</p>
+      <span
+        className="material-symbols-outlined absolute right-4 text-xl text-indigo-600 cursor-pointer hover:text-lg transition-all"
+        title={`Copy ${title}`}
+        onClick={handleCopy}
+      >
+        {isCopied ? "check_circle" : "content_copy"}
       </span>
-
-      {/* enable copy functionality */}
-      {/* once the value is copied, the span changes to check_circle for a brief moment */}
-
-      {/* <span className="material-symbols-outlined absolute right-4">check_circle</span> */}
     </div>
   );
 };
@@ -166,30 +170,32 @@ const ShipmentDetails = ({ isOpen, onClose, shipment }) => {
 
         <div className="p-4 h-4/5 overflow-item flex flex-col gap-8">
           <ModalSection heading="general information">
-            <ModalRecord title="Shipment ID" value={shipment.id} />
-            <ModalRecord title="Batch Number" value={shipment.batchNumber} />
-            <ModalRecord title="Manufacturer" value={shipment.manufacturer} />
+            <ModalRecord title="Shipment ID" value={shipment.id} icon="tag" />
+            <ModalRecord title="Batch Number" value={shipment.batchNumber} icon="receipt" />
+            <ModalRecord title="Manufacturer" value={shipment.manufacturer} icon="factory" />
             <ModalRecord
               title="Production Date"
               value={shipment.productionDate}
+              icon="event"
             />
             <ModalRecord
               title="Quality Assurance Officer"
               value={shipment.qaOfficer}
+              icon="editor_choice"
             />
-            <ModalRecord title="Destination" value={shipment.destination} />
-            <ModalRecord title="Status" value={shipment.status} />
-            <ModalRecord title="Date Shipped" value={shipment.dateShipped} />
+            <ModalRecord title="Destination" value={shipment.destination} icon="location_on" />
+            <ModalRecord title="Status" value={shipment.status} icon="hourglass_top" />
+            <ModalRecord title="Date Shipped" value={shipment.dateShipped} icon="local_shipping" />
             <ModalRecord
               title="Estimated Delivery Date"
-              value={shipment.estimatedDelivery}
+              value={shipment.estimatedDelivery} icon="event"
             />
             <ModalRecord
               title="Current Location"
-              value={shipment.currentLocation}
+              value={shipment.currentLocation} icon="location_on"
             />
-            <ModalRecord title="Temperature" value={shipment.temperature} />
-            <ModalRecord title="Humidity" value={shipment.humidity} />
+            <ModalRecord title="Temperature" value={shipment.temperature} icon="thermostat" />
+            <ModalRecord title="Humidity" value={shipment.humidity} icon="humidity_mid" />
           </ModalSection>
 
           <ModalSection heading="transaction history">
@@ -223,4 +229,4 @@ const ShipmentDetails = ({ isOpen, onClose, shipment }) => {
   );
 };
 
-export { FieldWrapper, RecentShipments, ShipmentDetails };
+export { FieldWrapper, RecentShipments, ShipmentDetails,ModalSection };

@@ -1,6 +1,7 @@
 // src/components/Layout.js
+import { useState } from "react";
 import { Outlet, Link, NavLink } from "react-router-dom";
-import { FieldWrapper } from "./Components";
+import HelpModal from "./HelpModal";
 
 import logo from "../assets/images/medtrack-logo.png";
 import profile_pic from "../assets/images/user.jpeg";
@@ -11,12 +12,12 @@ const NavigationLink = ({ to, label, icon }) => {
       to={to}
       className={({ isActive }) =>
         isActive
-          ? "flex items-center gap-2 px-4 py-2 border border-transparent rounded-full text-white bg-slate-900 w-fit lg:w-full"
-          : "flex items-center gap-2 px-4 py-2 border border-transparent rounded-full text-slate-900 hover:border hover:border-slate-900 w-fit lg:w-full"
+          ? "flex items-center gap-2 px-4 py-2 border border-transparent rounded-full text-white bg-indigo-600 w-fit lg:w-full"
+          : "flex items-center gap-2 px-4 py-2 border border-transparent rounded-full text-slate-900 hover:border hover:border-indigo-600 w-fit lg:w-full"
       }
     >
       <span className="material-symbols-outlined max-w-8 text-lg overflow-hidden flex-grow-0 flex-shrink-0">{icon}</span>
-      <p className="capitalize hidden lg:block text-sm">{label}</p>
+      <p className="capitalize font-medium hidden lg:block text-sm">{label}</p>
     </NavLink>
   );
 };
@@ -32,6 +33,7 @@ const getFormattedDate = () => {
 };
 
 const Layout = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const currentDate = getFormattedDate();
 
   return (
@@ -42,7 +44,7 @@ const Layout = () => {
           className="logo w-fit lg:w-full flex items-center gap-2 px-5"
         >
           <img src={logo} alt="MedTrack Logo" className="h-8 aspect-1" />
-          <h2 className="text-xl text-gray-800 uppercase font-bold hidden lg:block">
+          <h2 className="text-xl text-gray-950 uppercase font-bold hidden lg:block">
             <span className="text-indigo-600">M</span>ed
             <span className="text-indigo-600">T</span>rack
           </h2>
@@ -50,9 +52,9 @@ const Layout = () => {
 
         <div className="line w-full h-0  border border-slate-300"></div>
 
+        {/* navigation menu */}
         <div className="navigation flex flex-col w-full h-fit gap-4">
           <NavigationLink to="/" icon="home" label="dashboard" />
-          <NavigationLink to="/batch-info" icon="info" label="batch info" />
           <NavigationLink
             to="/create-shipment"
             icon="add_circle"
@@ -73,16 +75,14 @@ const Layout = () => {
         <div className="line w-full h-0  border border-slate-300"></div>
 
         <div className="w-full h-full flex flex-col items-center justify-end gap-1">
-          <img
-            src={profile_pic}
-            alt="user profile"
-            className="h-14 aspect-1 rounded-full border-2 border-indigo-600"
-          />
-
-          <h3 className="name text-gray-800 capitalize text-base font-bold">
-            john doe
-          </h3>
-          <p className="email text-gray-600 text-sm">johndoe@gmail.com</p>
+          <div className="w-full px-4 flex items-center gap-2  cursor-pointer hover:font-medium" onClick={()=>setIsModalOpen(true)}>
+            <span className="material-symbols-outlined text-gray-600">
+              help
+            </span>
+            <p className="email text-gray-600 text-sm capitalize hover:text-indigo-600">
+              help and support
+            </p>
+          </div>
         </div>
       </nav>
 
@@ -91,15 +91,35 @@ const Layout = () => {
           className="w-full bg-white rounded-xl shadow-xl flex items-center justify-between px-8"
           style={{ height: "15%" }}
         >
-          <FieldWrapper
-            id="search"
-            type="text"
-            placeholder="Search"
-            icon="search"
-            iconPosition="right"
-          />
+          <div className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-indigo-600">
+              calendar_month
+            </span>
+            <p className="text-sm text-gray-600">{currentDate}</p>
+          </div>
 
-          <p className="text-sm text-gray-600">{currentDate}</p>
+          <div className="flex items-center gap-4">
+            <span
+              className="material-symbols-outlined text-gray-600 cursor-pointer select-none"
+              title="No notifications at the moment"
+            >
+              notifications
+            </span>
+            <div className="h-10 w-0 border"></div>
+            <div className="flex flex-col items-end justify-center">
+              <h3 className="text-base text-gray-950 font-medium capitalize">
+                john doe
+              </h3>
+              <p className="text-xs text-gray-600 capitalize">
+                inventory manager
+              </p>
+            </div>
+            <img
+              className="h-12 aspect-1 rounded-full"
+              src={profile_pic}
+              alt="user john doe"
+            />
+          </div>
         </header>
 
         <div
@@ -109,6 +129,8 @@ const Layout = () => {
           <Outlet />
         </div>
       </main>
+
+      <HelpModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 };

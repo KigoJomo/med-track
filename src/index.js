@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
-import BatchInfo from "./components/BatchInfo";
 import CreateShipment from "./components/CreateShipment";
 import TrackShipment from "./components/TrackShipment";
 import VerifyMedication from "./components/VerifyMedication";
@@ -20,7 +19,6 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="login" element={<Login />} />
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="batch-info" element={<BatchInfo />} />
           <Route path="create-shipment" element={<CreateShipment />} />
           <Route path="track-shipment" element={<TrackShipment />} />
           <Route path="verify-medication" element={<VerifyMedication />} />
