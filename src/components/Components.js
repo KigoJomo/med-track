@@ -149,7 +149,7 @@ const ModalRecord = ({ icon, title, value, noCopy }) => {
       </p>
       <p className="pl-2 text-sm text-gray-900 font-semibold">{value}</p>
       {noCopy? "" : <span
-        className="material-symbols-outlined absolute right-4 text-xl text-indigo-600 cursor-pointer hover:text-lg transition-all"
+        className={`material-symbols-outlined absolute right-4 text-xl cursor-pointer hover:text-lg transition-all ${isCopied? "text-green-600":"text-indigo-600"}`}
         title={`Copy ${title}`}
         onClick={handleCopy}
       >
