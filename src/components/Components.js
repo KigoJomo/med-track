@@ -107,7 +107,7 @@ const RecentShipments = ({ shipments, onShipmentClick }) => {
             <TableDataCol text={shipment.dateShipped} shipDate={true} />
             <TableDataCol text={shipment.status} />
             <TableDataCol text={shipment.estimatedDelivery} />
-            <TableDataCol text={shipment.currentLocation} />
+            <TableDataCol text={shipment.currentLocation.name} />
           </tr>
         ))}
       </tbody>
@@ -178,7 +178,7 @@ const ShipmentDetails = ({ isOpen, onClose, shipment }) => {
           <ModalSection heading="general information">
             <ModalRecord title="Shipment ID" value={shipment.id} icon="tag" />
             <ModalRecord title="Batch Number" value={shipment.batchNumber} icon="receipt" />
-            <ModalRecord title="Manufacturer" value={shipment.manufacturer} icon="factory" />
+            <ModalRecord title="Manufacturer" value={shipment.manufacturer.name} icon="factory" />
             <ModalRecord
               title="Production Date"
               value={shipment.productionDate}
@@ -189,7 +189,7 @@ const ShipmentDetails = ({ isOpen, onClose, shipment }) => {
               value={shipment.qaOfficer}
               icon="editor_choice"
             />
-            <ModalRecord title="Destination" value={shipment.destination} icon="location_on" />
+            <ModalRecord title="Destination" value={shipment.destination.name} icon="location_on" />
             <ModalRecord title="Status" value={shipment.status} icon="hourglass_top" />
             <ModalRecord title="Date Shipped" value={shipment.dateShipped} icon="local_shipping" />
             <ModalRecord
@@ -198,7 +198,7 @@ const ShipmentDetails = ({ isOpen, onClose, shipment }) => {
             />
             <ModalRecord
               title="Current Location"
-              value={shipment.currentLocation} icon="location_on"
+              value={shipment.currentLocation.name} icon="location_on"
             />
             <ModalRecord title="Temperature" value={shipment.temperature} icon="thermostat" />
             <ModalRecord title="Humidity" value={shipment.humidity} icon="humidity_mid" />

@@ -2,14 +2,32 @@
   {
     "id": "SHIP12345",
     "batchNumber": "BATCH001",
-    "manufacturer": "Pharma Inc.",
+    "manufacturer": {
+      "name": "Nairobi Pharma Inc.",
+      "location": {
+        "latitude": -1.2864,
+        "longitude": 36.8172
+      }
+    },
     "productionDate": "2023-07-01",
-    "qaOfficer": "John Doe",
-    "destination": "Hospital A",
+    "qaOfficer": "John Kamau",
+    "destination": {
+      "name": "Kenyatta National Hospital",
+      "location": {
+        "latitude": -1.3031,
+        "longitude": 36.8072
+      }
+    },
     "status": "In Transit",
     "dateShipped": "2023-07-02",
-    "estimatedDelivery": "2023-07-05",
-    "currentLocation": "Distribution Center",
+    "estimatedDelivery": "2023-07-03",
+    "currentLocation": {
+      "name": "Nairobi Distribution Center",
+      "location": {
+        "latitude": -1.2921,
+        "longitude": 36.8219
+      }
+    },
     "temperature": "4°C",
     "humidity": "60%",
     "transactionHistory": [
@@ -30,14 +48,32 @@
   {
     "id": "SHIP12346",
     "batchNumber": "BATCH002",
-    "manufacturer": "MedCo Ltd.",
+    "manufacturer": {
+      "name": "Mombasa MedCo Ltd.",
+      "location": {
+        "latitude": -4.0435,
+        "longitude": 39.6682
+      }
+    },
     "productionDate": "2023-12-25",
-    "qaOfficer": "Jane Smith",
-    "destination": "Clinic B",
+    "qaOfficer": "Jane Akinyi",
+    "destination": {
+      "name": "Coast General Hospital",
+      "location": {
+        "latitude": -4.05,
+        "longitude": 39.662
+      }
+    },
     "status": "Delivered",
     "dateShipped": "2023-12-26",
-    "estimatedDelivery": "2023-12-29",
-    "currentLocation": "Clinic B",
+    "estimatedDelivery": "2023-12-27",
+    "currentLocation": {
+      "name": "Coast General Hospital",
+      "location": {
+        "latitude": -4.05,
+        "longitude": 39.662
+      }
+    },
     "temperature": "4°C",
     "humidity": "58%",
     "transactionHistory": [
@@ -54,24 +90,42 @@
         "actor": "Logistics Team"
       },
       {
-        "dateTime": "2023-12-29T12:00:00Z",
+        "dateTime": "2023-12-27T12:00:00Z",
         "event": "Delivered",
-        "location": "Clinic B",
-        "actor": "Clinic Staff"
+        "location": "Coast General Hospital",
+        "actor": "Hospital Staff"
       }
     ]
   },
   {
     "id": "SHIP12347",
     "batchNumber": "BATCH003",
-    "manufacturer": "HealthCorp",
+    "manufacturer": {
+      "name": "Kisumu HealthCorp",
+      "location": {
+        "latitude": -0.0917,
+        "longitude": 34.768
+      }
+    },
     "productionDate": "2023-06-15",
-    "qaOfficer": "Emily Clark",
-    "destination": "Pharmacy C",
+    "qaOfficer": "Emily Ochieng",
+    "destination": {
+      "name": "Jaramogi Oginga Odinga Hospital",
+      "location": {
+        "latitude": -0.1027,
+        "longitude": 34.756
+      }
+    },
     "status": "In Transit",
     "dateShipped": "2023-06-16",
-    "estimatedDelivery": "2023-06-20",
-    "currentLocation": "Local Hub",
+    "estimatedDelivery": "2023-06-17",
+    "currentLocation": {
+      "name": "Kisumu Local Hub",
+      "location": {
+        "latitude": -0.1,
+        "longitude": 34.76
+      }
+    },
     "temperature": "5°C",
     "humidity": "55%",
     "transactionHistory": [
@@ -92,14 +146,32 @@
   {
     "id": "SHIP12348",
     "batchNumber": "BATCH004",
-    "manufacturer": "Wellness Pharmaceuticals",
+    "manufacturer": {
+      "name": "Nakuru Wellness Pharmaceuticals",
+      "location": {
+        "latitude": -0.3031,
+        "longitude": 36.08
+      }
+    },
     "productionDate": "2023-05-10",
-    "qaOfficer": "Michael Brown",
-    "destination": "Hospital D",
+    "qaOfficer": "Michael Kiprop",
+    "destination": {
+      "name": "Nakuru Level 5 Hospital",
+      "location": {
+        "latitude": -0.2833,
+        "longitude": 36.0667
+      }
+    },
     "status": "Delivered",
     "dateShipped": "2023-05-11",
-    "estimatedDelivery": "2023-05-15",
-    "currentLocation": "Hospital D",
+    "estimatedDelivery": "2023-05-12",
+    "currentLocation": {
+      "name": "Nakuru Level 5 Hospital",
+      "location": {
+        "latitude": -0.28,
+        "longitude": 36.065
+      }
+    },
     "temperature": "3°C",
     "humidity": "65%",
     "transactionHistory": [
@@ -116,9 +188,9 @@
         "actor": "Logistics Team"
       },
       {
-        "dateTime": "2023-05-15T11:00:00Z",
+        "dateTime": "2023-05-12T11:00:00Z",
         "event": "Delivered",
-        "location": "Hospital D",
+        "location": "Nakuru Level 5 Hospital",
         "actor": "Receiving Team"
       }
     ]
@@ -126,14 +198,32 @@
   {
     "id": "SHIP12349",
     "batchNumber": "BATCH005",
-    "manufacturer": "GlobalPharma",
+    "manufacturer": {
+      "name": "Eldoret GlobalPharma",
+      "location": {
+        "latitude": 0.5143,
+        "longitude": 35.2698
+      }
+    },
     "productionDate": "2023-03-20",
-    "qaOfficer": "Sara Lee",
-    "destination": "Clinic E",
+    "qaOfficer": "Sara Chebet",
+    "destination": {
+      "name": "Moi Teaching and Referral Hospital",
+      "location": {
+        "latitude": 0.5181,
+        "longitude": 35.283
+      }
+    },
     "status": "In Transit",
     "dateShipped": "2023-03-21",
-    "estimatedDelivery": "2023-03-25",
-    "currentLocation": "Regional Warehouse",
+    "estimatedDelivery": "2023-03-22",
+    "currentLocation": {
+      "name": "Eldoret Regional Warehouse",
+      "location": {
+        "latitude": 0.5162,
+        "longitude": 35.2764
+      }
+    },
     "temperature": "4°C",
     "humidity": "62%",
     "transactionHistory": [
@@ -154,14 +244,32 @@
   {
     "id": "SHIP12350",
     "batchNumber": "BATCH006",
-    "manufacturer": "PharmaTech",
+    "manufacturer": {
+      "name": "Thika PharmaTech",
+      "location": {
+        "latitude": -1.0396,
+        "longitude": 37.09
+      }
+    },
     "productionDate": "2023-02-14",
-    "qaOfficer": "Daniel Kim",
-    "destination": "Pharmacy F",
+    "qaOfficer": "Daniel Muthomi",
+    "destination": {
+      "name": "Thika Level 5 Hospital",
+      "location": {
+        "latitude": -1.0387,
+        "longitude": 37.0833
+      }
+    },
     "status": "Delivered",
     "dateShipped": "2023-02-15",
-    "estimatedDelivery": "2023-02-18",
-    "currentLocation": "Pharmacy F",
+    "estimatedDelivery": "2023-02-16",
+    "currentLocation": {
+      "name": "Thika Level 5 Hospital",
+      "location": {
+        "latitude": -1.037,
+        "longitude": 37.084
+      }
+    },
     "temperature": "3°C",
     "humidity": "60%",
     "transactionHistory": [
@@ -172,15 +280,15 @@
         "actor": "Manufacturing Team"
       },
       {
-        "dateTime": "2023-02-15T09:00:00Z",
+        "dateTime": "2023-02-15T08:00:00Z",
         "event": "Shipped",
         "location": "Factory",
         "actor": "Logistics Team"
       },
       {
-        "dateTime": "2023-02-18T13:00:00Z",
+        "dateTime": "2023-02-16T14:00:00Z",
         "event": "Delivered",
-        "location": "Pharmacy F",
+        "location": "Thika Level 5 Hospital",
         "actor": "Receiving Team"
       }
     ]
@@ -188,25 +296,43 @@
   {
     "id": "SHIP12351",
     "batchNumber": "BATCH007",
-    "manufacturer": "BioPharm",
-    "productionDate": "2023-01-05",
-    "qaOfficer": "Natalie Johnson",
-    "destination": "Hospital G",
+    "manufacturer": {
+      "name": "Machakos MediLab",
+      "location": {
+        "latitude": -1.5177,
+        "longitude": 37.2634
+      }
+    },
+    "productionDate": "2023-08-05",
+    "qaOfficer": "Grace Mutua",
+    "destination": {
+      "name": "Machakos Level 5 Hospital",
+      "location": {
+        "latitude": -1.5185,
+        "longitude": 37.2586
+      }
+    },
     "status": "In Transit",
-    "dateShipped": "2023-01-06",
-    "estimatedDelivery": "2023-01-09",
-    "currentLocation": "Central Warehouse",
-    "temperature": "5°C",
+    "dateShipped": "2023-08-06",
+    "estimatedDelivery": "2023-08-07",
+    "currentLocation": {
+      "name": "Machakos Town Depot",
+      "location": {
+        "latitude": -1.5181,
+        "longitude": 37.261
+      }
+    },
+    "temperature": "4°C",
     "humidity": "59%",
     "transactionHistory": [
       {
-        "dateTime": "2023-01-05T12:00:00Z",
+        "dateTime": "2023-08-05T09:30:00Z",
         "event": "Manufactured",
         "location": "Factory",
         "actor": "Manufacturing Team"
       },
       {
-        "dateTime": "2023-01-06T08:00:00Z",
+        "dateTime": "2023-08-06T08:15:00Z",
         "event": "Shipped",
         "location": "Factory",
         "actor": "Logistics Team"
@@ -216,245 +342,95 @@
   {
     "id": "SHIP12352",
     "batchNumber": "BATCH008",
-    "manufacturer": "PharmaGroup",
-    "productionDate": "2023-08-30",
-    "qaOfficer": "Anna White",
-    "destination": "Clinic H",
+    "manufacturer": {
+      "name": "Nyeri HealthSolutions",
+      "location": {
+        "latitude": -0.4246,
+        "longitude": 36.9479
+      }
+    },
+    "productionDate": "2023-09-10",
+    "qaOfficer": "Peter Wanjohi",
+    "destination": {
+      "name": "Nyeri County Referral Hospital",
+      "location": {
+        "latitude": -0.4172,
+        "longitude": 36.9514
+      }
+    },
     "status": "Delivered",
-    "dateShipped": "2023-08-31",
-    "estimatedDelivery": "2023-09-03",
-    "currentLocation": "Clinic H",
-    "temperature": "4°C",
-    "humidity": "61%",
+    "dateShipped": "2023-09-11",
+    "estimatedDelivery": "2023-09-12",
+    "currentLocation": {
+      "name": "Nyeri County Referral Hospital",
+      "location": {
+        "latitude": -0.416,
+        "longitude": 36.952
+      }
+    },
+    "temperature": "5°C",
+    "humidity": "57%",
     "transactionHistory": [
       {
-        "dateTime": "2023-08-30T15:00:00Z",
+        "dateTime": "2023-09-10T10:45:00Z",
         "event": "Manufactured",
         "location": "Factory",
         "actor": "Manufacturing Team"
       },
       {
-        "dateTime": "2023-08-31T10:00:00Z",
+        "dateTime": "2023-09-11T07:30:00Z",
         "event": "Shipped",
         "location": "Factory",
         "actor": "Logistics Team"
       },
       {
-        "dateTime": "2023-09-03T14:00:00Z",
+        "dateTime": "2023-09-12T13:20:00Z",
         "event": "Delivered",
-        "location": "Clinic H",
-        "actor": "Clinic Staff"
+        "location": "Nyeri County Referral Hospital",
+        "actor": "Hospital Staff"
       }
     ]
   },
   {
     "id": "SHIP12353",
     "batchNumber": "BATCH009",
-    "manufacturer": "MedSolutions",
-    "productionDate": "2023-11-20",
-    "qaOfficer": "David Wilson",
-    "destination": "Hospital I",
-    "status": "In Transit",
-    "dateShipped": "2023-11-21",
-    "estimatedDelivery": "2023-11-24",
-    "currentLocation": "Main Hub",
-    "temperature": "4°C",
-    "humidity": "57%",
-    "transactionHistory": [
-      {
-        "dateTime": "2023-11-20T10:00:00Z",
-        "event": "Manufactured",
-        "location": "Factory",
-        "actor": "Manufacturing Team"
-      },
-      {
-        "dateTime": "2023-11-21T09:00:00Z",
-        "event": "Shipped",
-        "location": "Factory",
-        "actor": "Logistics Team"
+    "manufacturer": {
+      "name": "Kakamega PharmaCare",
+      "location": {
+        "latitude": 0.2827,
+        "longitude": 34.7519
       }
-    ]
-  },
-  {
-    "id": "SHIP12354",
-    "batchNumber": "BATCH010",
-    "manufacturer": "HealthInnovations",
-    "productionDate": "2023-04-10",
-    "qaOfficer": "Laura Davis",
-    "destination": "Clinic J",
-    "status": "Delivered",
-    "dateShipped": "2023-04-11",
-    "estimatedDelivery": "2023-04-14",
-    "currentLocation": "Clinic J",
+    },
+    "productionDate": "2023-10-20",
+    "qaOfficer": "Esther Wafula",
+    "destination": {
+      "name": "Kakamega County General Hospital",
+      "location": {
+        "latitude": 0.2855,
+        "longitude": 34.7523
+      }
+    },
+    "status": "In Transit",
+    "dateShipped": "2023-10-21",
+    "estimatedDelivery": "2023-10-22",
+    "currentLocation": {
+      "name": "Kakamega Town Center",
+      "location": {
+        "latitude": 0.2845,
+        "longitude": 34.7515
+      }
+    },
     "temperature": "3°C",
-    "humidity": "63%",
+    "humidity": "61%",
     "transactionHistory": [
       {
-        "dateTime": "2023-04-10T14:00:00Z",
+        "dateTime": "2023-10-20T11:15:00Z",
         "event": "Manufactured",
         "location": "Factory",
         "actor": "Manufacturing Team"
       },
       {
-        "dateTime": "2023-04-11T10:00:00Z",
-        "event": "Shipped",
-        "location": "Factory",
-        "actor": "Logistics Team"
-      },
-      {
-        "dateTime": "2023-04-14T12:00:00Z",
-        "event": "Delivered",
-        "location": "Clinic J",
-        "actor": "Clinic Staff"
-      }
-    ]
-  },
-  {
-    "id": "SHIP12355",
-    "batchNumber": "BATCH011",
-    "manufacturer": "PharmaPlus",
-    "productionDate": "2023-10-01",
-    "qaOfficer": "James Moore",
-    "destination": "Hospital K",
-    "status": "In Transit",
-    "dateShipped": "2023-10-02",
-    "estimatedDelivery": "2023-10-05",
-    "currentLocation": "Logistics Center",
-    "temperature": "4°C",
-    "humidity": "60%",
-    "transactionHistory": [
-      {
-        "dateTime": "2023-10-01T13:00:00Z",
-        "event": "Manufactured",
-        "location": "Factory",
-        "actor": "Manufacturing Team"
-      },
-      {
-        "dateTime": "2023-10-02T08:00:00Z",
-        "event": "Shipped",
-        "location": "Factory",
-        "actor": "Logistics Team"
-      }
-    ]
-  },
-  {
-    "id": "SHIP12356",
-    "batchNumber": "BATCH012",
-    "manufacturer": "BioMed Corp.",
-    "productionDate": "2023-09-15",
-    "qaOfficer": "Evelyn Martin",
-    "destination": "Pharmacy L",
-    "status": "Delivered",
-    "dateShipped": "2023-09-16",
-    "estimatedDelivery": "2023-09-19",
-    "currentLocation": "Pharmacy L",
-    "temperature": "5°C",
-    "humidity": "56%",
-    "transactionHistory": [
-      {
-        "dateTime": "2023-09-15T08:00:00Z",
-        "event": "Manufactured",
-        "location": "Factory",
-        "actor": "Manufacturing Team"
-      },
-      {
-        "dateTime": "2023-09-16T09:00:00Z",
-        "event": "Shipped",
-        "location": "Factory",
-        "actor": "Logistics Team"
-      },
-      {
-        "dateTime": "2023-09-19T11:00:00Z",
-        "event": "Delivered",
-        "location": "Pharmacy L",
-        "actor": "Receiving Team"
-      }
-    ]
-  },
-  {
-    "id": "SHIP12357",
-    "batchNumber": "BATCH013",
-    "manufacturer": "LifeSciences",
-    "productionDate": "2023-11-01",
-    "qaOfficer": "William Taylor",
-    "destination": "Clinic M",
-    "status": "In Transit",
-    "dateShipped": "2023-11-02",
-    "estimatedDelivery": "2023-11-05",
-    "currentLocation": "Distribution Center",
-    "temperature": "4°C",
-    "humidity": "59%",
-    "transactionHistory": [
-      {
-        "dateTime": "2023-11-01T11:00:00Z",
-        "event": "Manufactured",
-        "location": "Factory",
-        "actor": "Manufacturing Team"
-      },
-      {
-        "dateTime": "2023-11-02T09:00:00Z",
-        "event": "Shipped",
-        "location": "Factory",
-        "actor": "Logistics Team"
-      }
-    ]
-  },
-  {
-    "id": "SHIP12358",
-    "batchNumber": "BATCH014",
-    "manufacturer": "PharmaWorld",
-    "productionDate": "2023-02-20",
-    "qaOfficer": "Christopher Anderson",
-    "destination": "Hospital N",
-    "status": "Delivered",
-    "dateShipped": "2023-02-21",
-    "estimatedDelivery": "2023-02-24",
-    "currentLocation": "Hospital N",
-    "temperature": "4°C",
-    "humidity": "60%",
-    "transactionHistory": [
-      {
-        "dateTime": "2023-02-20T10:00:00Z",
-        "event": "Manufactured",
-        "location": "Factory",
-        "actor": "Manufacturing Team"
-      },
-      {
-        "dateTime": "2023-02-21T08:00:00Z",
-        "event": "Shipped",
-        "location": "Factory",
-        "actor": "Logistics Team"
-      },
-      {
-        "dateTime": "2023-02-24T14:00:00Z",
-        "event": "Delivered",
-        "location": "Hospital N",
-        "actor": "Receiving Team"
-      }
-    ]
-  },
-  {
-    "id": "SHIP12359",
-    "batchNumber": "BATCH015",
-    "manufacturer": "MediLife",
-    "productionDate": "2023-05-01",
-    "qaOfficer": "Victoria Brown",
-    "destination": "Clinic O",
-    "status": "In Transit",
-    "dateShipped": "2023-05-02",
-    "estimatedDelivery": "2023-05-05",
-    "currentLocation": "Main Warehouse",
-    "temperature": "5°C",
-    "humidity": "58%",
-    "transactionHistory": [
-      {
-        "dateTime": "2023-05-01T09:00:00Z",
-        "event": "Manufactured",
-        "location": "Factory",
-        "actor": "Manufacturing Team"
-      },
-      {
-        "dateTime": "2023-05-02T08:00:00Z",
+        "dateTime": "2023-10-21T09:00:00Z",
         "event": "Shipped",
         "location": "Factory",
         "actor": "Logistics Team"

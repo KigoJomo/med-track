@@ -19,7 +19,7 @@ html {
   transition: all 0.3s ease;
 }
 
-.material-symbols-outlined{
+.material-symbols-outlined {
   max-width: 24px;
   overflow: hidden;
   border-radius: 50%;
@@ -33,39 +33,47 @@ html {
   text-overflow: ellipsis;
 }
 
-.overflow-item{
+.overflow-item {
   overflow-y: scroll;
 }
-.overflow-item::-webkit-scrollbar{
+.overflow-item::-webkit-scrollbar {
   width: 7px;
 }
-.overflow-item::-webkit-scrollbar-track{
+.overflow-item::-webkit-scrollbar-track {
   background: rgb(203 213 225);
   border-left: 3px solid transparent;
   border-right: 3px solid transparent;
   background-clip: content-box;
 }
-.overflow-item::-webkit-scrollbar-thumb{
+.overflow-item::-webkit-scrollbar-thumb {
   background-color: rgb(203 213 225);
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color .3s ease;
+  transition: background-color 0.3s ease;
 }
 
-.overflow-item::-webkit-scrollbar-thumb:hover{
+.overflow-item::-webkit-scrollbar-thumb:hover {
   background-color: rgb(57, 69, 95);
 }
 
 .overflow-top-blur {
-	 position: relative;
+  position: relative;
 }
- .overflow-top-blur::after {
-	 position: fixed;
-	 content: "";
-	 top: 0;
-	 left: 0;
-	 height: 32px;
-	 width: 100%;
-	 background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-	 backdrop-filter: blur(10px);
+.overflow-top-blur::after {
+  position: fixed;
+  content: "";
+  top: 0;
+  left: 0;
+  height: 32px;
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  backdrop-filter: blur(10px);
+}
+
+.mapboxgl-control-container {
+  display: none;
 }
