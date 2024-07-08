@@ -77,3 +77,7 @@ html {
 .mapboxgl-control-container {
   display: none;
 }
+
+.test{
+  color: #608dee;
+}
