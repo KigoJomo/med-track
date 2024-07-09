@@ -1,0 +1,107 @@
+[
+  {
+    "id": "med12345",
+    "name": "Aspirin",
+    "manufacturer": "PharmaCorp",
+    "batchNumber": "A123",
+    "expiryDate": "2024-12-31",
+    "productionDate": "2023-01-01",
+    "isAuthentic": true,
+    "supplyChain": [
+      {
+        "date": "2023-01-02",
+        "location": "Factory",
+        "holder": "PharmaCorp",
+        "event": "Manufactured"
+      },
+      {
+        "date": "2023-01-10",
+        "location": "Warehouse",
+        "holder": "PharmaCorp",
+        "event": "Stored"
+      },
+      {
+        "date": "2023-02-01",
+        "location": "Distribution Center",
+        "holder": "PharmaCorp",
+        "event": "Distributed"
+      },
+      {
+        "date": "2023-02-10",
+        "location": "Pharmacy",
+        "holder": "Pharmacy XYZ",
+        "event": "Delivered"
+      }
+    ]
+  },
+  {
+    "id": "med67890",
+    "name": "Ibuprofen",
+    "manufacturer": "MedHealth",
+    "batchNumber": "B456",
+    "expiryDate": "2025-06-30",
+    "productionDate": "2023-06-01",
+    "isAuthentic": true,
+    "supplyChain": [
+      {
+        "date": "2023-06-02",
+        "location": "Factory",
+        "holder": "MedHealth",
+        "event": "Manufactured"
+      },
+      {
+        "date": "2023-06-15",
+        "location": "Warehouse",
+        "holder": "MedHealth",
+        "event": "Stored"
+      },
+      {
+        "date": "2023-07-01",
+        "location": "Distribution Center",
+        "holder": "MedHealth",
+        "event": "Distributed"
+      },
+      {
+        "date": "2023-07-10",
+        "location": "Pharmacy",
+        "holder": "Pharmacy ABC",
+        "event": "Delivered"
+      }
+    ]
+  },
+  {
+    "id": "med54321",
+    "name": "Paracetamol",
+    "manufacturer": "HealthGen",
+    "batchNumber": "C789",
+    "expiryDate": "2023-11-30",
+    "productionDate": "2022-11-01",
+    "isAuthentic": false,
+    "supplyChain": [
+      {
+        "date": "2022-11-02",
+        "location": "Factory",
+        "holder": "HealthGen",
+        "event": "Manufactured"
+      },
+      {
+        "date": "2022-11-20",
+        "location": "Warehouse",
+        "holder": "HealthGen",
+        "event": "Stored"
+      },
+      {
+        "date": "2022-12-01",
+        "location": "Distribution Center",
+        "holder": "HealthGen",
+        "event": "Distributed"
+      },
+      {
+        "date": "2022-12-10",
+        "location": "Pharmacy",
+        "holder": "Pharmacy DEF",
+        "event": "Delivered"
+      }
+    ]
+  }
+]
