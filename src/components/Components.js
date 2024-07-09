@@ -2,6 +2,36 @@
 import React, {useState} from "react";
 import ReactModal from "react-modal";
 
+function FormatDate(dateString) {
+  // Create a new Date object from the input date string
+  const date = new Date(dateString);
+
+  // Get the day of the month (with leading zero if needed)
+  const day = ("0" + date.getUTCDate()).slice(-2);
+
+  // Define an array with month names
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  // Get the name of the month
+  const month = months[date.getUTCMonth()];
+
+  // Return the formatted date string
+  return `${day} ${month}`;
+}
+
 const TableHeaderCol = ({ icon, text, width }) => {
   return (
     <th className="w-1/6 text-left text-xs text-gray-400 font-semibold py-3 select-none capitalize flex items-center gap-1" style={{ width: width }}>
@@ -235,4 +265,4 @@ const ShipmentDetails = ({ isOpen, onClose, shipment }) => {
   );
 };
 
-export { FieldWrapper, RecentShipments, ShipmentDetails,ModalSection, ModalRecord };
+export { FieldWrapper, RecentShipments, ShipmentDetails,ModalSection, ModalRecord, FormatDate };

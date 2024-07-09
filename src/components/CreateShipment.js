@@ -52,6 +52,7 @@ function CreateShipment() {
       <h2 className="capitalize text-2xl font-bold text-gray-800">
         Create Shipment
       </h2>
+      
       <form
         onSubmit={handleSubmit}
         className="w-full h-4/5 overflow-item flex flex-col gap-8 pl-6 pr-32"
@@ -134,6 +135,7 @@ function CreateShipment() {
           {isSubmitted ? "Shipment Created!" : "Create Shipment"}
         </button>
       </form>
+
       <ConfirmationModal
         isOpen={isModalOpen}
         formData={formData}

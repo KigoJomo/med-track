@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MapBoxComponent from "./MapComponents/MapboxComponent";
+import { FormatDate } from "./Components";
 
 function TrackShipment() {
   const [shipmentsData, setShipmentsData] = useState([]);
@@ -25,6 +26,7 @@ function TrackShipment() {
       const shipment = {
         id: fetchedDetails.id,
         status: fetchedDetails.status,
+        estimatedDelivery: fetchedDetails.estimatedDelivery,
         temperature: fetchedDetails.temperature,
         humidity: fetchedDetails.humidity,
         qaOfficer: fetchedDetails.qaOfficer,
@@ -57,7 +59,7 @@ function TrackShipment() {
 
   return (
     <section className="shadow-xl w-full h-full flex items-center gap-0 rounded-xl overflow-hidden">
-      <div className="details h-full w-2/5 bg-slate-100 px-8 py-6 flex flex-col items-start gap-4 shadow-3xl border-r-2">
+      <div className="details h-full w-2/5 bg-slate-100 px-8 py-6 flex flex-col items-start justify-between gap-4 shadow-3xl border-r-2">
         <form
           className="w-full flex items-center gap-2 relative"
           onSubmit={handleSearch}
@@ -81,48 +83,67 @@ function TrackShipment() {
           </button>
         </form>
 
-        {shipmentDetails && (
-          <>
-            <div className="w-full  px-2 flex flex-col gap-4 overflow-item">
-              <h3 className="capitalize text-xl text-slate-950">
-                {shipmentDetails.id}
-              </h3>
+        {/* <div className="line w-full h-0 border border-slate-300"></div> */}
 
-              <p>status: {shipmentDetails.status} </p>
-              <p>temperature: {shipmentDetails.temperature} </p>
-              <p>humidity: {shipmentDetails.humidity} </p>
-              <p>qaOfficer: {shipmentDetails.qaOfficer} </p>
-              <p>
-                currentLocation: {shipmentDetails.currentLocation[0]}{" __ "}
-                {shipmentDetails.currentLocation[1]}{" "}
-              </p>
-              <p>
-                destination: {shipmentDetails.destination[0]}{" __ "}
-                {shipmentDetails.destination[1]}{" "}
-              </p>
-              <p>
-                manufacturer: {shipmentDetails.manufacturer[0]}{" __ "}
-                {shipmentDetails.manufacturer[1]}{" "}
-              </p>
-              <div>
-                <h4 className="text-lg text-slate-800 font-semibold">Timeline:</h4>
-                {shipmentDetails.timeline.map((event, index) => (
-                  <div key={index}>
-                    <p>Event: {event.event}</p>
-                    <p>Date: {event.date}</p>
-                    <p>Location: {event.location}</p>
-                    <hr/>
+        <h3 className="text-base text-slate-950 font-semibold capitalize">
+          timeline:
+        </h3>
+
+        <div className="timeline w-full h-2/3 border border-slate-300 rounded-lg flex flex-col-reverse justify-between py-6 px-6">
+          {shipmentDetails && (
+            <>
+              {shipmentDetails.timeline.map((event, index) => (
+                <div key={index} className="flex items-center gap-2">
+                  <span className="material-symbols-outlined">
+                    {event.event === "Manufactured" ? <>factory</> : ""}
+                    {event.event === "Shipped" ? <>package_2</> : ""}
+                    {event.event === "delivered" ? <>check_circle</> : ""}
+                  </span>
+                  <div className="flex flex-col">
+                    <p>{event.event}</p>
+                    <p>{FormatDate(event.date)}</p>
                   </div>
-                ))}
-              </div>
-            </div>
-          </>
-        )}
+                </div>
+              ))}
+              {shipmentDetails.status === "In Transit" ? (
+                <div className="flex items-center gap-2">
+                  <span className="material-symbols-outlined">
+                    local_shipping
+                  </span>
+                  <div className="flex flex-col">
+                    <p> {shipmentDetails.status} </p>
+                    <p> {shipmentDetails.estimatedDelivery} </p>
+                  </div>
+                </div>
+              ) : (
+                ""
+              )}
+            </>
+          )}
+        </div>
+
+        <div className="others w-full h-1/6 border border-slate-300 rounded-lg flex items-center gap-2 px-4 pt-6">
+          {/* temp */}
+          <div className="w-1/3 h-full flex flex-col items-center justify-start gap-2">
+            <span className="material-symbols-outlined">thermostat</span>
+            {shipmentDetails && <p> {shipmentDetails.temperature} </p>}
+          </div>
+          {/* humidity */}
+          <div className="w-1/3 h-full flex flex-col items-center justify-start gap-2">
+            <span className="material-symbols-outlined">water_drop</span>
+            {shipmentDetails && <p> {shipmentDetails.humidity} </p>}
+          </div>
+          {/* qa */}
+          <div className="w-1/3 h-full flex flex-col items-center justify-start gap-2">
+            <span className="material-symbols-outlined">verified_user</span>
+            {shipmentDetails && <p> {shipmentDetails.qaOfficer} </p>}
+          </div>
+        </div>
       </div>
 
       <div
         id="map"
-        className="h-full w-3/5 border-8 border-l-0 border-slate-100 rounded-lg rounded-l-none bg-slate-100"
+        className="h-full w-3/5 border-8 border-l-0 border-slate-100 rounded-lg rounded-l-none bg-slate-100 overflow-hidden"
       >
         <MapBoxComponent shipmentDetails={shipmentDetails} />
       </div>
