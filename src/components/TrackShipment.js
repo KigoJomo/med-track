@@ -126,25 +126,35 @@ function TrackShipment() {
                       </p>
                     </div>
                   </div>
-                  <div key={index+=2} className="h-12 w-0 border border-dashed border-gray-600 ml-6"></div>
+
+                  {event.event !== "Delivered" ? (
+                    <div
+                      key={(index += 2)}
+                      className="h-12 w-0 border border-dashed border-gray-600 ml-6"
+                    ></div>
+                  ) : (
+                    ""
+                  )}
                 </>
               ))}
               {shipmentDetails.status === "In Transit" ? (
-                <div className="flex items-center gap-2">
-                  <span className="material-symbols-outlined timeline-icon bg-orange-600">
-                    local_shipping
-                  </span>
-                  <div className="w-6 h-0 border border-gray-600 border-dashed"></div>
-                  <div className="flex flex-col">
-                    <p className="text-slate-950 text-sm font-bold">
-                      {" "}
-                      {shipmentDetails.status}{" "}
-                    </p>
-                    <p className="text-slate-600 text-xs font-semibold">
-                      est. delivery: {shipmentDetails.estimatedDelivery}{" "}
-                    </p>
+                <>
+                  <div className="flex items-center gap-2">
+                    <span className="material-symbols-outlined timeline-icon bg-orange-600">
+                      local_shipping
+                    </span>
+                    <div className="w-6 h-0 border border-gray-600 border-dashed"></div>
+                    <div className="flex flex-col">
+                      <p className="text-slate-950 text-sm font-bold">
+                        {" "}
+                        {shipmentDetails.status}{" "}
+                      </p>
+                      <p className="text-slate-600 text-xs font-semibold">
+                        est. delivery: {shipmentDetails.estimatedDelivery}{" "}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </>
               ) : (
                 ""
               )}
@@ -152,21 +162,27 @@ function TrackShipment() {
           )}
         </div>
 
-        <div className="others w-full h-1/6 border border-slate-300 rounded-lg flex items-center gap-2 px-4 pt-6">
+        <div className="others w-full h-1/6 border border-slate-300 rounded-lg flex items-end gap-2 px-4">
+
           {/* temp */}
-          <div className="w-1/3 h-full flex flex-col items-center justify-start gap-2">
-            <span className="material-symbols-outlined">thermostat</span>
-            {shipmentDetails && <p> {shipmentDetails.temperature} </p>}
+          <div className="w-1/3 h-full flex flex-col items-center justify-center gap-2">
+            <span className="material-symbols-outlined text-gray-500">thermostat</span>
+            <div className="w-8 h-0 border border-gray-300"></div>
+            {shipmentDetails && <p className="text-xs text-slate-950 font-semibold overflow-hidden overflow-ellipsis text-nowrap max-w-full"> {shipmentDetails.temperature} </p>}
           </div>
+
           {/* humidity */}
-          <div className="w-1/3 h-full flex flex-col items-center justify-start gap-2">
-            <span className="material-symbols-outlined">water_drop</span>
-            {shipmentDetails && <p> {shipmentDetails.humidity} </p>}
+          <div className="w-1/3 h-full flex flex-col items-center justify-center gap-2">
+            <span className="material-symbols-outlined text-gray-500">water_drop</span>
+            <div className="w-8 h-0 border border-gray-300"></div>
+            {shipmentDetails && <p className="text-xs text-slate-950 font-semibold overflow-hidden overflow-ellipsis text-nowrap max-w-full"> {shipmentDetails.humidity} </p>}
           </div>
+
           {/* qa */}
-          <div className="w-1/3 h-full flex flex-col items-center justify-start gap-2">
-            <span className="material-symbols-outlined">verified_user</span>
-            {shipmentDetails && <p> {shipmentDetails.qaOfficer} </p>}
+          <div className="w-1/3 h-full flex flex-col items-center justify-center gap-2">
+            <span className="material-symbols-outlined text-gray-500">verified_user</span>
+            <div className="w-8 h-0 border border-gray-300"></div>
+            {shipmentDetails && <p className="text-xs text-slate-950 font-semibold overflow-hidden overflow-ellipsis text-nowrap max-w-full"> {shipmentDetails.qaOfficer} </p>}
           </div>
         </div>
       </div>
