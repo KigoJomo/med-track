@@ -78,6 +78,22 @@ html {
   display: none;
 }
 
-.test{
-  color: #608dee;
+.timeline-icon{
+  max-width: 128px !important;
+  width: 3rem;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.timeline-icon::after{
+  position: absolute;
+  content: "";
+  height: 85%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: .15rem solid white;
 }

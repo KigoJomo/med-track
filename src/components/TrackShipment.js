@@ -89,30 +89,60 @@ function TrackShipment() {
           timeline:
         </h3>
 
-        <div className="timeline w-full h-2/3 border border-slate-300 rounded-lg flex flex-col-reverse justify-between py-6 px-6">
+        <div className="timeline w-full h-2/3 border border-slate-300 rounded-lg flex flex-col-reverse justify-center py-6 px-6">
           {shipmentDetails && (
             <>
               {shipmentDetails.timeline.map((event, index) => (
-                <div key={index} className="flex items-center gap-2">
-                  <span className="material-symbols-outlined">
-                    {event.event === "Manufactured" ? <>factory</> : ""}
-                    {event.event === "Shipped" ? <>package_2</> : ""}
-                    {event.event === "delivered" ? <>check_circle</> : ""}
-                  </span>
-                  <div className="flex flex-col">
-                    <p>{event.event}</p>
-                    <p>{FormatDate(event.date)}</p>
+                <>
+                  <div key={index} className="flex items-center gap-2">
+                    {event.event === "Manufactured" ? (
+                      <span className="material-symbols-outlined timeline-icon bg-indigo-600">
+                        factory
+                      </span>
+                    ) : (
+                      ""
+                    )}
+                    {event.event === "Shipped" ? (
+                      <span className="material-symbols-outlined timeline-icon bg-blue-700">
+                        package_2
+                      </span>
+                    ) : (
+                      ""
+                    )}
+                    {event.event === "Delivered" ? (
+                      <span className="material-symbols-outlined timeline-icon bg-green-500">
+                        check_circle
+                      </span>
+                    ) : (
+                      ""
+                    )}
+                    <div className="w-6 h-0 border border-gray-600 border-dashed"></div>
+                    <div className="flex flex-col">
+                      <p className="text-slate-950 text-sm font-semibold">
+                        {event.event}
+                      </p>
+                      <p className="text-slate-600 text-xs font-semibold">
+                        {FormatDate(event.date)}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                  <div key={index+=2} className="h-12 w-0 border border-dashed border-gray-600 ml-6"></div>
+                </>
               ))}
               {shipmentDetails.status === "In Transit" ? (
                 <div className="flex items-center gap-2">
-                  <span className="material-symbols-outlined">
+                  <span className="material-symbols-outlined timeline-icon bg-orange-600">
                     local_shipping
                   </span>
+                  <div className="w-6 h-0 border border-gray-600 border-dashed"></div>
                   <div className="flex flex-col">
-                    <p> {shipmentDetails.status} </p>
-                    <p> {shipmentDetails.estimatedDelivery} </p>
+                    <p className="text-slate-950 text-sm font-bold">
+                      {" "}
+                      {shipmentDetails.status}{" "}
+                    </p>
+                    <p className="text-slate-600 text-xs font-semibold">
+                      est. delivery: {shipmentDetails.estimatedDelivery}{" "}
+                    </p>
                   </div>
                 </div>
               ) : (
